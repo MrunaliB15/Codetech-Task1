@@ -14,6 +14,7 @@ Objective:
 
 The primary goal of this project is to automate the process of logging into the Sauce Demo website, adding a product to the cart, and completing the checkout process. This helps in ensuring the functionality of the e-commerce site and can be used for testing purposes.
 
+
 Key Activities:
 
 1.Setup: Configure the environment by setting the path to the ChromeDriver executable.
@@ -30,6 +31,7 @@ Key Activities:
 
 7.Browser Closure: Close the browser after the process is completed.
 
+
 Technologies Used:
 
 Java: For writing the automation script.
@@ -37,6 +39,7 @@ Java: For writing the automation script.
 Selenium WebDriver: To interact with the web elements.
 
 ChromeDriver: To control the Chrome browser.
+
 
 Additional Details:
 
