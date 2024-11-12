@@ -1,0 +1,63 @@
+package codetech;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Task1 {
+    public static void main(String[] args) {
+        // Set the path to the ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+
+        // Create a new instance of the ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Open the Sauce Demo website
+        driver.get("https://www.saucedemo.com/");
+
+        // Log in to the website
+        WebElement usernameField = driver.findElement(By.id("user-name"));
+        WebElement passwordField = driver.findElement(By.id("password"));
+        WebElement loginButton = driver.findElement(By.id("login-button"));
+
+        usernameField.sendKeys("standard_user");
+        passwordField.sendKeys("secret_sauce");
+        loginButton.click();
+
+        // Navigate to a product page
+        WebElement productLink = driver.findElement(By.id("item_4_title_link"));
+        productLink.click();
+
+        // Add the product to the cart
+        WebDriverWait wait = new WebDriverWait(driver, 10); // Wait for up to 10 seconds
+        WebElement addToCartButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart")));
+        addToCartButton.click();
+
+        // Go to the cart page
+        WebElement cartButton = driver.findElement(By.className("shopping_cart_link"));
+        cartButton.click();
+
+        // Complete the checkout process
+        WebElement checkoutButton = driver.findElement(By.id("checkout"));
+        checkoutButton.click();
+        WebElement firstNameField = driver.findElement(By.id("first-name"));
+        WebElement lastNameField = driver.findElement(By.id("last-name"));
+        WebElement postalCodeField = driver.findElement(By.id("postal-code"));
+        WebElement continueButton = driver.findElement(By.id("continue"));
+
+        firstNameField.sendKeys("Vida");
+        lastNameField.sendKeys("Zander");
+        postalCodeField.sendKeys("12345");
+        continueButton.click();
+
+        // completed the checkout process
+        WebElement finishButton = driver.findElement(By.id("finish"));
+        finishButton.click();
+
+        // Close the browser
+        driver.quit();
+    }
+}
